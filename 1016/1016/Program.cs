@@ -1,3 +1,4 @@
+//See L1
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +28,7 @@ namespace _1024
 
 
 
-            //L1(6);
+            L1(100);
             //L2(10);
         }
         /// <summary>
@@ -68,10 +69,28 @@ namespace _1024
         /// </summary>
         /// <param name="n">numarul de linii care se afiseaza</param>
         private static void L1(int n)
-        {
-
-            // TODO:implement readout list of numbers
-
+        {   
+            Console.WriteLine($"\n____L1({n})_____output_:  _");
+            int nCount=1;
+            int numarLinii=Convert.ToInt32(Math.Sqrt(n))+1; //Don't know about this,forReal...lol
+            List<int> line1=new List<int>();
+            line1.Add(1);
+            Console.WriteLine("[LINIE 1] 1");
+            if(nCount==n){return;}
+            for(int i=1;i<numarLinii;i++){
+                int numCount=1;
+                List<int> line2=new List<int>();
+                for(int j=0;j<line1.Count-1;j++){
+                    if(line1[j]==line1[j+1]){numCount++;}
+                    else{line2.Add(numCount);line2.Add(line1[j]);numCount=1;}
+                }
+            int lastElem=line1[line1.Count-1];
+            line2.Add(numCount);line2.Add(lastElem);
+            line1=line2;
+            Console.Write($"[LINIE {i+1}]");
+            for(int t=0;t<line1.Count;t++){Console.Write($" {line1[t]}");nCount++;if(nCount==n){return;}}
+            Console.WriteLine();
+            }
         }
 
 
